@@ -182,6 +182,7 @@ section{position:relative;z-index:1}
   letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
 }
 .lead{font-size:17px;color:var(--ink-2);text-align:center;max-width:38ch}
+.hosts{font-family:var(--serif);font-style:italic;font-size:18.5px;color:var(--ink);text-align:center}
 .tiny{font-size:13.5px;color:var(--ink-soft);text-align:center;line-height:1.55}
 .arabic{font-family:var(--arabic);color:var(--gold-dp);line-height:2}
 
@@ -217,6 +218,11 @@ h1.title{font-family:var(--serif);font-style:italic;font-size:clamp(27px,7.6vw,3
 .person{text-align:center;display:flex;flex-direction:column;gap:7px}
 .person .name{font-family:var(--script);font-size:clamp(38px,11vw,50px);line-height:1.05;color:var(--ink)}
 .lang-ta .person .name{font-family:var(--tamil);font-size:clamp(25px,7vw,32px);font-weight:500;line-height:1.4}
+.person .name .ini{
+  font-family:var(--serif);font-size:.5em;font-weight:500;
+  letter-spacing:.03em;vertical-align:.2em;margin-right:.08em;color:var(--ink-2);
+}
+.lang-ta .person .name .ini{font-size:.7em;vertical-align:.04em}
 .person .qual{font-family:var(--stamp);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .person .lineage{font-size:14px;color:var(--ink-soft);line-height:1.55;max-width:34ch;margin:0 auto}
 .knot{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--sage);letter-spacing:.2em}
@@ -290,9 +296,36 @@ h1.title{font-family:var(--serif);font-style:italic;font-size:clamp(27px,7.6vw,3
 .closing .sub{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--sage)}
 .credit{text-align:center;font-family:var(--stamp);font-size:10px;letter-spacing:.2em;color:var(--ink-soft);opacity:.8;margin-top:18px}
 
-/* scroll reveal — visible at rest; JS opts in to the animation */
-body.js .rv{opacity:0;transform:translateY(20px)}
-body.js .rv.in{opacity:1;transform:none;transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.3,1)}
+/* scroll reveal — visible at rest; JS opts in to the animation.
+   A section only fades; its children ("stagger targets", tagged .st by JS)
+   carry the movement, each offset by its own --d delay, so a section's
+   pieces arrive in sequence instead of as one block. */
+body.js .rv{opacity:0}
+body.js .rv.in{opacity:1;transition:opacity .45s ease}
+
+body.js .rv .st{opacity:0;transform:translateY(var(--y,16px)) scale(var(--s,1))}
+body.js .rv.in .st{
+  opacity:1;transform:none;
+  transition:opacity .7s ease var(--d,0s),
+             transform .75s cubic-bezier(.2,.7,.3,1) var(--d,0s);
+}
+body.js .rv :where(.event){--y:24px;--s:.985}
+body.js .rv :where(.person>.name){--y:22px}
+
+/* gold rules draw themselves open from the centre, then the motif blooms */
+body.js .rule.rv i{transform:scaleX(0)}
+body.js .rule.rv i:first-of-type{transform-origin:right center}
+body.js .rule.rv i:last-of-type{transform-origin:left center}
+body.js .rule.rv.in i{transform:scaleX(1);transition:transform .9s cubic-bezier(.2,.7,.3,1) .08s}
+body.js .rule.rv svg{opacity:0;transform:scale(.5) rotate(-18deg)}
+body.js .rule.rv.in svg{
+  opacity:1;transform:none;
+  transition:opacity .5s ease .4s,transform .65s cubic-bezier(.3,1.35,.4,1) .4s;
+}
+
+/* the gold 24 pops once the calendar has revealed */
+@keyframes markPop{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s both}
 
 @media (min-width:600px){
   .card{padding:46px 44px 38px}
@@ -405,10 +438,10 @@ body.js .rv.in{opacity:1;transform:none;transition:opacity .85s ease,transform .
     <section class="crest rv">
       <div class="eyebrow t-en">Heartily inviting you &amp; your family</div>
       <div class="eyebrow t-ta tamilable" style="letter-spacing:.08em">தங்கள் குடும்பத்துடன் அன்புடன் அழைக்கின்றோம்</div>
+      <p class="hosts t-en">Mr. Muhammed Althaf &amp; Abitha Begum</p>
       <p class="lead t-en">
-        <em>Mr. Mohammed Althaf &amp; Abitha Begum</em> invite your esteemed presence
-        and blessings, with family and friends, to celebrate the love &amp; commitment
-        of their son
+        We invite your esteemed presence and blessings, with family and friends,
+        to celebrate the love &amp; commitment of our son
       </p>
       <p class="lead t-ta tamilable">
         அன்புடையீர், அஸ்ஸலாமு அலைக்கும் வரஹ்… எல்லாம் வல்ல அல்லாஹ்வின் பேரருளாலும்,
@@ -421,11 +454,11 @@ body.js .rv.in{opacity:1;transform:none;transition:opacity .85s ease,transform .
     <!-- The couple -->
     <section class="couple rv">
       <div class="person">
-        <div class="name t-en">M. A. Thanveer</div>
-        <div class="name t-ta">M.A. தன்வீர்</div>
+        <div class="name t-en"><span class="ini">M.A.</span> Thanveer</div>
+        <div class="name t-ta"><span class="ini">M.A.</span> தன்வீர்</div>
         <div class="qual">B.Com (CA)</div>
         <p class="lineage t-en">
-          Son of Mr. Mohammed Althaf &amp; Abitha Begum, Thirumarai Nagar, Coimbatore<br>
+          Son of Mr. Muhammed Althaf &amp; Abitha Begum, Thirumarai Nagar, Coimbatore<br>
           Grandson of (Late) M. Abdul Majith Sahib &amp; (Late) B. Mohammathi Sahib, CBE
         </p>
         <p class="lineage t-ta tamilable">
@@ -440,8 +473,8 @@ body.js .rv.in{opacity:1;transform:none;transition:opacity .85s ease,transform .
       </div>
 
       <div class="person">
-        <div class="name t-en">A. Sameera Begam</div>
-        <div class="name t-ta">A. ஷமீரா பேகம்</div>
+        <div class="name t-en"><span class="ini">A.</span> Sameera Begam</div>
+        <div class="name t-ta"><span class="ini">A.</span> ஷமீரா பேகம்</div>
         <div class="qual">B.A. Eng (lit) &middot; Mullama</div>
         <p class="lineage t-en">
           Daughter of Mr. S. Anwer &amp; Mrs. A. Meharaj Begam, Erode<br>
@@ -579,12 +612,12 @@ body.js .rv.in{opacity:1;transform:none;transition:opacity .85s ease,transform .
       <div class="sub t-ta tamilable" style="font-style:normal">அன்பையும் மகிழ்ச்சியையும் கொண்டாடுகிறோம்</div>
       <p class="tiny t-en" style="margin-top:12px">
         With love,<br>
-        <strong style="font-weight:500;color:var(--ink-2)">Mr. A. Mohammed Althaf Sahib &amp; Abitha Begum</strong><br>
+        <strong style="font-weight:500;color:var(--ink-2)">Mr. A. Muhammed Althaf &amp; Abitha Begum</strong><br>
         Thirumarai Nagar, Podanur, Coimbatore – 641026
       </p>
       <p class="tiny t-ta tamilable" style="margin-top:12px">
         தங்கள் அன்புள்ள<br>
-        <strong style="font-weight:500;color:var(--ink-2)">ஜனாப் A. முஹம்மத் அல்தாப் சாஹெப் — ஆபிதா பேகம்</strong><br>
+        <strong style="font-weight:500;color:var(--ink-2)">ஜனாப் A. முஹம்மத் அல்தாப் — ஆபிதா பேகம்</strong><br>
         திருமறை நகர், போத்தனூர், கோவை – 641026
       </p>
     </section>
@@ -623,6 +656,38 @@ body.js .rv.in{opacity:1;transform:none;transition:opacity .85s ease,transform .
   var env = document.getElementById("envelope");
   if (!reduce && "IntersectionObserver" in window){
     body.classList.add("js");
+
+    /* Tag each section's staggered children once, up front, so the
+       IntersectionObserver callback only has to toggle one class later.
+       Four wrapper containers are expanded one level deeper so the
+       pieces inside them (event cards, countdown tiles, compliment
+       lines, the two halves of the couple) cascade individually. */
+    var EXPAND = ".person, .events, .count, .comp";
+    var STEP = 0.08, MAX_STEPS = 7; /* 8 steps incl. 0 => ~0.56s max */
+    document.querySelectorAll(".rv").forEach(function(section){
+      if (section.classList.contains("rule")) return; /* rules animate on their own */
+      var targets = [];
+      Array.prototype.forEach.call(section.children, function(child){
+        if (child.matches(EXPAND)){
+          Array.prototype.forEach.call(child.children, function(grandchild){
+            targets.push(grandchild);
+          });
+        } else {
+          targets.push(child);
+        }
+      });
+      var step = 0;
+      targets.forEach(function(el){
+        el.classList.add("st");
+        /* A hidden language twin gets no delay of its own — it is already
+           in its resolved "in" state via CSS the moment it becomes visible
+           (by the EN/தமிழ் toggle), so it can never get stuck invisible. */
+        if (getComputedStyle(el).display === "none") return;
+        el.style.setProperty("--d", (Math.min(step, MAX_STEPS) * STEP) + "s");
+        step++;
+      });
+    });
+
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
