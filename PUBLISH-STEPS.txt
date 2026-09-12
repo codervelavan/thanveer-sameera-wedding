@@ -1,0 +1,83 @@
+THANVEER & SAMEERA — WEDDING INVITATION
+How to get a public link to send on WhatsApp
+================================================
+
+You have a finished invitation page in this folder:
+    index.html
+
+Opening that file on your own PC works, but a file on your PC isn't a link
+other people can tap. Put the whole "invitation" folder online with one of
+the two free options below, and you'll get a real https:// link.
+
+
+OPTION 1 — Netlify Drop  (recommended: free, no account, ~1 minute)
+---------------------------------------------------------------------
+1. On your computer, open a web browser and go to:
+       https://app.netlify.com/drop
+
+2. Find this folder in File Explorer:
+       Tanveer wedding > invitation
+
+3. Drag the ENTIRE "invitation" folder from File Explorer onto the
+   Netlify Drop page in your browser. (Drag the folder itself, not just
+   index.html — it needs to be dragged as a folder.)
+
+4. Wait a few seconds. Netlify will give you a link that looks like:
+       https://random-two-words-123456.netlify.app
+
+   That link already works — test it by opening it yourself first.
+
+5. (Optional, makes the link nicer) Click "Site configuration" →
+   "Change site name" and set something like:
+       thanveer-sameera
+   Your link becomes:
+       https://thanveer-sameera.netlify.app
+
+That's the link you send on WhatsApp. It is public — anyone who has the
+link can open it — which is exactly what you want for guests.
+
+If you ever need to fix something (a typo, a wrong number), edit
+index.html, then drag the "invitation" folder onto netlify.com/drop again.
+It replaces the old version at the SAME link — guests don't need a new one.
+
+
+OPTION 2 — GitHub Pages  (a bit more setup, free, permanent)
+---------------------------------------------------------------------
+1. Create a free GitHub account at https://github.com if you don't have one.
+2. Create a new repository (Settings icon → New repository), e.g. named
+   "thanveer-sameera-wedding". Make it Public.
+3. Upload index.html into it (there's an "Add file → Upload files" button
+   on the repository page — drag index.html in, then click "Commit").
+4. Go to the repository's Settings tab → Pages (left sidebar).
+5. Under "Branch", choose "main" and folder "/ (root)", then Save.
+6. After a minute, GitHub shows your link, which looks like:
+       https://yourusername.github.io/thanveer-sameera-wedding/
+
+Use that link the same way as the Netlify one.
+
+
+MESSAGE TO SEND ON WHATSAPP
+---------------------------------------------------------------------
+English:
+
+  With love and gratitude, we invite you to the Nikkah & Valima of
+  Thanveer & Sameera — Thursday, 24 September 2026, Coimbatore.
+  Please open our invitation here: [paste your link here]
+
+Tamil:
+
+  அன்புடன் அழைக்கிறோம் — தன்வீர் & ஷமீரா அவர்களின் நிக்காஹ் மற்றும்
+  வலிமா, வியாழக்கிழமை, 24 செப்டம்பர் 2026, கோயமுத்தூர்.
+  எங்கள் அழைப்பிதழை இங்கே காணவும்: [paste your link here]
+
+
+NOTES
+---------------------------------------------------------------------
+- The page has an EN / தமிழ் toggle in the top-right corner — guests can
+  read it in either language, no separate link needed.
+- The countdown, calendar, "Add to calendar" button, venue map link and
+  the two contact numbers are already wired up and will work once the
+  page is online.
+- Whichever option you pick, test the live link yourself on your phone
+  before sending it out — open it, tap "Open Invitation," and check the
+  Venue map and Add to calendar buttons.
