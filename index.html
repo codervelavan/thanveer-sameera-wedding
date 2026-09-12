@@ -18,7 +18,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F7F4EC'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23A9873C' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23DCC17E'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Serif+Tamil:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Serif+Tamil:wght@300;400;500&display=swap">
 
 <style>
 :root{
@@ -34,7 +34,7 @@
   --sage:#93A47A;
   --line:#DCD5C1;
   --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --script:"Great Vibes","Cormorant Garamond",cursive;
+  --script:"Pinyon Script","Cormorant Garamond",cursive;
   --stamp:"Jost","Helvetica Neue",Arial,sans-serif;
   --arabic:"Noto Naskh Arabic","Cormorant Garamond",serif;
   --tamil:"Noto Serif Tamil","Cormorant Garamond",serif;
@@ -124,11 +124,11 @@ a{color:inherit}
   padding:0 18px 7%;
 }
 .env-face .eyebrow{margin-bottom:4px}
-.env-names{font-family:var(--script);font-size:clamp(21px,6.4vw,26px);color:var(--ink-2);line-height:1.1}
+.env-names{font-family:var(--script);font-size:clamp(24px,7vw,30px);color:var(--ink-2);line-height:1.1}
 
 .seal{
   position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);
-  z-index:6;width:25%;aspect-ratio:1;height:auto;border-radius:50%;
+  z-index:6;width:25%;aspect-ratio:1;height:auto;border-radius:50%;overflow:hidden;
   display:grid;place-items:center;text-align:center;
   background:
     radial-gradient(circle at 34% 26%,#F6E4B4 0%,#D8B762 32%,#A9873C 62%,#7E6224 100%);
@@ -190,6 +190,7 @@ section{position:relative;z-index:1}
 .crest{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 .lanterns{display:flex;justify-content:space-between;width:100%;color:var(--ink-soft);opacity:.55}
 .medallion{
+  position:relative;overflow:hidden;
   width:104px;height:104px;border-radius:50%;display:grid;place-items:center;
   background:radial-gradient(circle at 32% 24%,#FBEFC9 0%,#E0C57C 30%,#B6923F 64%,#846627 100%);
   box-shadow:0 0 0 4px var(--paper),0 0 0 5px #D6BC7C,0 0 0 11px var(--paper),0 0 0 12px rgba(169,135,60,.4),0 6px 18px rgba(126,98,36,.28);
@@ -216,13 +217,8 @@ h1.title{font-family:var(--serif);font-style:italic;font-size:clamp(27px,7.6vw,3
 /* couple */
 .couple{display:flex;flex-direction:column;align-items:center;gap:22px;width:100%}
 .person{text-align:center;display:flex;flex-direction:column;gap:7px}
-.person .name{font-family:var(--script);font-size:clamp(38px,11vw,50px);line-height:1.05;color:var(--ink)}
+.person .name{font-family:var(--script);font-size:clamp(42px,12.5vw,58px);line-height:1.05;color:var(--ink)}
 .lang-ta .person .name{font-family:var(--tamil);font-size:clamp(25px,7vw,32px);font-weight:500;line-height:1.4}
-.person .name .ini{
-  font-family:var(--serif);font-size:.5em;font-weight:500;
-  letter-spacing:.03em;vertical-align:.2em;margin-right:.08em;color:var(--ink-2);
-}
-.lang-ta .person .name .ini{font-size:.7em;vertical-align:.04em}
 .person .qual{font-family:var(--stamp);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .person .lineage{font-size:14px;color:var(--ink-soft);line-height:1.55;max-width:34ch;margin:0 auto}
 .knot{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--sage);letter-spacing:.2em}
@@ -243,7 +239,7 @@ h1.title{font-family:var(--serif);font-style:italic;font-size:clamp(27px,7.6vw,3
 
 /* calendar */
 .cal{width:100%;max-width:310px;text-align:center}
-.cal .mon{font-family:var(--script);font-size:32px;color:var(--ink-2);line-height:1}
+.cal .mon{font-family:var(--script);font-size:37px;color:var(--ink-2);line-height:1}
 .cal .yr{font-family:var(--stamp);font-size:11px;letter-spacing:.3em;color:var(--ink-soft);margin:2px 0 12px}
 .cal .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-family:var(--stamp);font-size:12.5px;font-variant-numeric:tabular-nums}
 .cal .grid b{font-weight:400;color:var(--gold);font-size:10.5px;letter-spacing:.08em;padding-bottom:4px}
@@ -292,7 +288,7 @@ h1.title{font-family:var(--serif);font-style:italic;font-size:clamp(27px,7.6vw,3
 
 /* closing */
 .closing{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
-.closing .pair{font-family:var(--script);font-size:clamp(27px,8vw,34px);color:var(--ink);line-height:1.15}
+.closing .pair{font-family:var(--script);font-size:clamp(30px,9vw,39px);color:var(--ink);line-height:1.15}
 .closing .sub{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--sage)}
 .credit{text-align:center;font-family:var(--stamp);font-size:10px;letter-spacing:.2em;color:var(--ink-soft);opacity:.8;margin-top:18px}
 
@@ -310,7 +306,19 @@ body.js .rv.in .st{
              transform .75s cubic-bezier(.2,.7,.3,1) var(--d,0s);
 }
 body.js .rv :where(.event){--y:24px;--s:.985}
-body.js .rv :where(.person>.name){--y:22px}
+
+/* the couple's names write themselves on instead of fading in — a left-to-
+   right clip-path wipe reads as pen strokes on a script face. The negative
+   top/bottom/left insets matter: Pinyon Script's swashes and descenders
+   overshoot the text box, and a plain inset(0 100% 0 0) would shave them off. */
+body.js .rv .person > .name.st{
+  opacity:1;transform:none;
+  clip-path:inset(-8% 100% -14% -6%);
+}
+body.js .rv.in .person > .name.st{
+  clip-path:inset(-8% -6% -14% -6%);
+  transition:clip-path 1.6s cubic-bezier(.22,.65,.25,1) var(--d,0s);
+}
 
 /* gold rules draw themselves open from the centre, then the motif blooms */
 body.js .rule.rv i{transform:scaleX(0)}
@@ -326,6 +334,17 @@ body.js .rule.rv.in svg{
 /* the gold 24 pops once the calendar has revealed */
 @keyframes markPop{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s both}
+
+/* a gold gleam sweeps across the medallion once it reveals, and keeps
+   catching the light on the envelope seal while it is still sealed shut */
+@keyframes gleam{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
+.medallion::after,.seal::after{
+  content:"";position:absolute;inset:-60% -10%;pointer-events:none;
+  background:linear-gradient(100deg,transparent 42%,rgba(255,250,230,.8) 50%,transparent 58%);
+  transform:translateX(-120%);
+}
+body.js .crest.rv.in .medallion::after{animation:gleam 2.4s cubic-bezier(.4,0,.6,1) 1s}
+#envelope:not(.opening) .seal::after{animation:gleam 3.4s cubic-bezier(.4,0,.6,1) 1.2s infinite}
 
 @media (min-width:600px){
   .card{padding:46px 44px 38px}
@@ -438,7 +457,7 @@ body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s bo
     <section class="crest rv">
       <div class="eyebrow t-en">Heartily inviting you &amp; your family</div>
       <div class="eyebrow t-ta tamilable" style="letter-spacing:.08em">தங்கள் குடும்பத்துடன் அன்புடன் அழைக்கின்றோம்</div>
-      <p class="hosts t-en">Mr. Muhammed Althaf &amp; Abitha Begum</p>
+      <p class="hosts t-en">Mr. Mohammed Althaf &amp; Abitha Begum</p>
       <p class="lead t-en">
         We invite your esteemed presence and blessings, with family and friends,
         to celebrate the love &amp; commitment of our son
@@ -454,12 +473,12 @@ body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s bo
     <!-- The couple -->
     <section class="couple rv">
       <div class="person">
-        <div class="name t-en"><span class="ini">M.A.</span> Thanveer</div>
-        <div class="name t-ta"><span class="ini">M.A.</span> தன்வீர்</div>
+        <div class="name t-en">M.A. Thanveer</div>
+        <div class="name t-ta">M.A. தன்வீர்</div>
         <div class="qual">B.Com (CA)</div>
         <p class="lineage t-en">
-          Son of Mr. Muhammed Althaf &amp; Abitha Begum, Thirumarai Nagar, Coimbatore<br>
-          Grandson of (Late) M. Abdul Majith Sahib &amp; (Late) B. Mohammathi Sahib, CBE
+          Son of Mr. Mohammed Althaf &amp; Abitha Begum, Thirumarai Nagar, Coimbatore<br>
+          Grandson of (Late) M. Abdul Majith Sahib &amp; (Late) B. Mohammathi Sahib, Coimbatore
         </p>
         <p class="lineage t-ta tamilable">
           கோவை, மரக்கடை — (மர்ஹூம்) M. அப்துல் மஜித் சாஹெப் அவர்களின் மகன்வழி பேரனும்,
@@ -473,12 +492,12 @@ body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s bo
       </div>
 
       <div class="person">
-        <div class="name t-en"><span class="ini">A.</span> Sameera Begam</div>
-        <div class="name t-ta"><span class="ini">A.</span> ஷமீரா பேகம்</div>
+        <div class="name t-en">A. Sameera Begam</div>
+        <div class="name t-ta">A. ஷமீரா பேகம்</div>
         <div class="qual">B.A. Eng (lit) &middot; Mullama</div>
         <p class="lineage t-en">
           Daughter of Mr. S. Anwer &amp; Mrs. A. Meharaj Begam, Erode<br>
-          Granddaughter of (Late) S. K. Syed Ali Sahib &amp; (Late) M. S. Muhammed Ghouse
+          Granddaughter of (Late) S. K. Syed Ali Sahib &amp; (Late) M. S. Mohammed Ghouse, Tirupur
         </p>
         <p class="lineage t-ta tamilable">
           ஈரோடு — (மர்ஹூம்) சையது அலி சாஹெப் அவர்களின் மகன்வழிப் பேத்தியும்,
@@ -593,9 +612,9 @@ body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s bo
       <p class="eyebrow t-en">With best compliments from</p>
       <p class="eyebrow t-ta tamilable" style="letter-spacing:.08em">அன்பு வாழ்த்துக்களுடன்</p>
       <div class="comp">
-        <div class="nm">M. A. Thanzil &nbsp;&middot;&nbsp; A. Taiyuba</div>
+        <div class="nm">M.A. Thanzil &nbsp;&middot;&nbsp; A. Taiyuba</div>
         <div style="font-style:italic;color:var(--ink-soft)">Princess: T. Aisha Madiha</div>
-        <div class="nm">A. R. M Timber Traders</div>
+        <div class="nm">A.R.M Timber Traders</div>
         <div class="nm">Smart Traders, Coimbatore</div>
         <div style="font-style:italic;color:var(--ink-soft)">Friends, Families &amp; Staffs</div>
       </div>
@@ -612,7 +631,7 @@ body.js .cal.rv.in .mark{animation:markPop .7s cubic-bezier(.3,1.3,.4,1) .45s bo
       <div class="sub t-ta tamilable" style="font-style:normal">அன்பையும் மகிழ்ச்சியையும் கொண்டாடுகிறோம்</div>
       <p class="tiny t-en" style="margin-top:12px">
         With love,<br>
-        <strong style="font-weight:500;color:var(--ink-2)">Mr. A. Muhammed Althaf &amp; Abitha Begum</strong><br>
+        <strong style="font-weight:500;color:var(--ink-2)">Mr. A. Mohammed Althaf &amp; Abitha Begum</strong><br>
         Thirumarai Nagar, Podanur, Coimbatore – 641026
       </p>
       <p class="tiny t-ta tamilable" style="margin-top:12px">
